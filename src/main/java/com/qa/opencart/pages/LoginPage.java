@@ -22,6 +22,8 @@ public class LoginPage {
 	private By registerlink=By.linkText("Register");	 		// Register link
 	
 	private By logoutsuccess=By.cssSelector("div#content h1");	// Check logout sucess message
+	
+	private By forGit=By.id("GitPurpose");						// adding this locator for code push to git after a change in code
 		
 	//  Constructor
 	
