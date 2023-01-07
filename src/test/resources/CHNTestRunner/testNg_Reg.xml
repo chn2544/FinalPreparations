@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CHN FrameWork Suite" parallel="tests" thread-count="3" verbose="4">
+
+	<listeners>
+		<listener
+			class-name="com.qa.opencart.listeners.ExtentReportListener" />
+		<listener
+			class-name="com.qa.opencart.listeners.TestAllureListener" />
+		<listener
+			class-name="com.qa.opencart.listeners.AnnotationTransformer" />
+	</listeners>
+
+	<test name="Login Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+
+	<test name="Accounts Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.AccountsPageTest" />
+		</classes>
+	</test>
+
+	<test name="Search Results Test">
+		<classes>
+			<class name="com.qa.opencart.tests.SearchResultsPageTest" />
+		</classes>
+	</test>
+ 
+	<test name="Product Info Page Test">
+		<classes>
+			<class name="com.qa.opencart.tests.ProductInfoPageTest" />
+		</classes>
+	</test>
+<!--
+	<test name="Register User Test">
+		<classes>
+			<class name="com.qa.opencart.tests.RegistrationTest" />
+		</classes>
+	</test>
+ -->
+</suite>
