@@ -23,7 +23,8 @@ public class LoginPage {
 	
 	private By logoutsuccess=By.cssSelector("div#content h1");	// Check logout sucess message
 	
-	private By forGit=By.id("GitPurpose");						// adding this locator for code push to git after a change in code
+	private By forGit=By.id("GitPurpose - updating locator");						// adding this locator for code push to git after a change in code
+	
 		
 	//  Constructor
 	
