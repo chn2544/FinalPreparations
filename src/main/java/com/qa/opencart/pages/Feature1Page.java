@@ -8,5 +8,7 @@ public class Feature1Page {
 	public static void main(String ars[])
 	{
 		System.out.println("Feature F1");
+		System.out.println("Feature F2");
+		
 	}
 }
