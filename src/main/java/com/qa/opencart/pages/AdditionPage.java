@@ -10,6 +10,8 @@ public class AdditionPage {
 		//WIP 
 		int a=10,b=34,c=23;
 		System.out.println(a+b+c);
+
+
 	}
 
 }
