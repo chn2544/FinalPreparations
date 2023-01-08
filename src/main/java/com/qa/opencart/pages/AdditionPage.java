@@ -11,6 +11,7 @@ public class AdditionPage {
 		int a=10,b=34,c=23;
 		System.out.println(a+b+c);
 
+		System.out.println("Happy New Year 2023");
 
 	}
 
