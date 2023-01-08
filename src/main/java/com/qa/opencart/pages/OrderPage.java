@@ -6,6 +6,6 @@ public class OrderPage {
 		// TODO Auto-generated method stub
 
 		System.out.println("Order Id 228");
-	}
 
+}
 }
