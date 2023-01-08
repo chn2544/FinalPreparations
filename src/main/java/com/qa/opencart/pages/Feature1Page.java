@@ -9,6 +9,7 @@ public class Feature1Page {
 	{
 		System.out.println("Feature F1");
 		System.out.println("Feature F2");
+		System.out.println("Last Feature F3");
 		
 	}
 }
