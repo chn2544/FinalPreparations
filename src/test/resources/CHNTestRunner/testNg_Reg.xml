@@ -12,34 +12,63 @@
 			class-name="com.qa.opencart.listeners.AnnotationTransformer" />
 	</listeners>
 
-	<test name="Login Page Test">
+	<test name="Login Page Test_CHR91">
+	  <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="91.0"/>
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+	
+	
+	<test name="Login Page Test_CHR89">
+	  <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="89.0"/>
+		<classes>
+			<class name="com.qa.opencart.tests.LoginPageTest" />
+		</classes>
+	</test>
+	
+	
+	<test name="Login Page Test_CHR100">
+	  <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="100.0"/>
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
 
-	<test name="Accounts Page Test">
+ 
+	<test name="Accounts Page Test_89">
+	  <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="89.0"/>
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
 		</classes>
 	</test>
 
-	<test name="Search Results Test">
+	<test name="Search Results Test_91">
+		 <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="91.0"/>
 		<classes>
 			<class name="com.qa.opencart.tests.SearchResultsPageTest" />
 		</classes>
 	</test>
  
-	<test name="Product Info Page Test">
+	<test name="Product Info Page Test_100">
+		 <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="100.0"/>
 		<classes>
 			<class name="com.qa.opencart.tests.ProductInfoPageTest" />
 		</classes>
 	</test>
-<!--
-	<test name="Register User Test">
+
+	<test name="Register User Test_89">
+	 <parameter name="browser" value="chrome"/>
+	  <parameter name="browserversion" value="89.0"/>
 		<classes>
 			<class name="com.qa.opencart.tests.RegistrationTest" />
 		</classes>
 	</test>
- -->
+ 
 </suite>

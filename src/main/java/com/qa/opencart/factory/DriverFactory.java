@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -12,6 +14,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import com.qa.opencart.exceptions.FrameWorkException;
@@ -41,15 +44,32 @@ public class DriverFactory {
 		
 		if(browsername.equalsIgnoreCase("chrome"))
 		{
-			WebDriverManager.chromedriver().setup();
-//			driver=new ChromeDriver(om.getChromeOptions());		// ChromeDriver has a constructor which takes ChromeOptions  class reference
-			tldriver.set(new ChromeDriver(om.getChromeOptions()));					// we are passing chromeDriver object value
+			if(Boolean.parseBoolean(prop.getProperty("remote")))
+			{
+				//remote execution on docker/cloud
+				init_remoteDriver("chrome");
+			}
+			else
+			{
+				//local execution
+				WebDriverManager.chromedriver().setup();
+				tldriver.set(new ChromeDriver(om.getChromeOptions()));					// we are passing chromeDriver object value	
+			}
+			
 		}
 		else if(browsername.equalsIgnoreCase("firefox"))
 		{
-			WebDriverManager.firefoxdriver().setup();
-//			driver=new FirefoxDriver(om.getFireFoxOptions());	//  FireFox has a constructor which takes ChromeOptions  class reference
-			tldriver.set(new FirefoxDriver(om.getFireFoxOptions())); 		// same for firefox
+			if(Boolean.parseBoolean(prop.getProperty("remote")))
+			{
+				//remote execution on docker/cloud
+				init_remoteDriver("firefox");
+			}
+			else
+			{
+				//local execution
+				WebDriverManager.firefoxdriver().setup();
+				tldriver.set(new FirefoxDriver(om.getFireFoxOptions()));					// we are passing FirefoxDriver object value	
+			}
 		}
 		else if(browsername.equalsIgnoreCase("safari"))			// does not support headless mode
 		{
@@ -66,6 +86,37 @@ public class DriverFactory {
 		return getDriver();					// we are returning driver here to pass it further , now instead of driver we need to return thread-local driver
 	}
 	
+	private void init_remoteDriver(String browserName)
+	{
+		System.out.println("Running Test Cases on Remote Environment... "+" on "+browserName);
+		
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			try 
+			{	// RemoteWebDriver provides a feature to run test cases on GRID machine /cloud machine, so we are using RemoteWebDriver ref here instead of chromeDriver.
+				
+				tldriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), om.getChromeOptions()));
+			} 
+			catch (MalformedURLException e)
+			{
+				e.printStackTrace();
+			}
+
+		}
+		else if(browserName.equalsIgnoreCase("firefox"))
+		{
+			try 
+			{	// RemoteWebDriver provides a feature to run test cases on GRID machine /cloud machine, so we are using RemoteWebDriver ref here instead of chromeDriver.
+				
+				tldriver.set(new RemoteWebDriver(new URL(prop.getProperty("huburl")), om.getFireFoxOptions()));
+			} 
+			catch (MalformedURLException e)
+			{
+				e.printStackTrace();
+			}
+		}
+	}
+
 	public static WebDriver getDriver()			// we are making this static so that we can call it directly in other methods.
 	{
 		return tldriver.get();

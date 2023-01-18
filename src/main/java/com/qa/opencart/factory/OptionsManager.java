@@ -20,8 +20,14 @@ public class OptionsManager {
 		
 		public ChromeOptions getChromeOptions()				// writing for chrome browser
 		{
-			co=new ChromeOptions();			
+			co=new ChromeOptions();		
 			
+			if(Boolean.parseBoolean(prop.getProperty("remote")))
+			{
+				co.setCapability("enableVNC",Boolean.parseBoolean(prop.getProperty("enableVNC")));						// use method setCapabilitiy with enableVNC=true   to visualize test cases
+				co.setBrowserVersion(prop.getProperty("browserversion"));
+			}
+					
 			if(Boolean.parseBoolean(prop.getProperty("headless")))		// we need to convert to boolean from string to check if condition
 			{
 				co.setHeadless(true);									// use method addArguments / setHeadless
@@ -37,6 +43,12 @@ public class OptionsManager {
 		public FirefoxOptions getFireFoxOptions()				// writing for chrome browser
 		{
 			fo=new FirefoxOptions();			
+			
+			if(Boolean.parseBoolean(prop.getProperty("remote")))
+			{
+				fo.setCapability("enableVNC",Boolean.parseBoolean(prop.getProperty("enableVNC")));						// use method setCapabilitiy with enableVNC=true   to visualize test cases
+				fo.setBrowserVersion(prop.getProperty("browserversion"));
+			}
 			
 			if(Boolean.parseBoolean(prop.getProperty("headless")))		// we need to convert to boolean from string to check if condition
 			{
