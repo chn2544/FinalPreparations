@@ -86,7 +86,7 @@ public class AccountsPageTest extends BaseTest{
 	}
 	
 
-	@Description("This test is to verify if logout is working or not...")
+	@Description("This test is to verify if logout is working or not....")
 	@Severity(SeverityLevel.BLOCKER)
 	@Test(priority = 7)
 	public void accountsPageLogoutTest()
