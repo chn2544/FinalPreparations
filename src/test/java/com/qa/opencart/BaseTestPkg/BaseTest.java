@@ -98,7 +98,7 @@ public class BaseTest {
 		// Pass the name of the S3 bucket
 		String bucket_name = "chnbucket2544";
 		// Location of the report file from the project structure
-		String file_path = "build/TestExecutionReport.html";
+		String file_path = "build/CHNTestExecution.html";
 		String key_name = Paths.get(file_path).getFileName().toString();
 
 		// Instantiate an Amazon S3 client, which will make the service call with the
