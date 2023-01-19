@@ -22,6 +22,8 @@ public class AccountsPage {
 	private By sectionheaders=By.xpath("//div[@id='content']//h2");
 	private By searchfeild=By.xpath("//input[@name='search']");		
 
+	private By searchfeild1=By.xpath("//input[@name='search']");	// changes made
+
 	private By searchclick = By.xpath("//span[@class='input-group-btn']//button[@type='button']");
 	
 	
