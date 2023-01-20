@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +29,7 @@ public class DriverFactory {
 	OptionsManager om;			//		creating ref of OptionsManager to initialize it in init_driver method.
 	
 	private static ThreadLocal<WebDriver> tldriver=new ThreadLocal<WebDriver>();    // tldriver will have copy of that particular webdriver ref object.
-	
+	public static final Logger log=Logger.getLogger(DriverFactory.class);
 		
 //		 this method is used to initialized driver based on browser name
 //		 and this method returns the driver.	
@@ -41,6 +42,8 @@ public class DriverFactory {
 		om=new OptionsManager(prop);						// here we can pass prop reference coming in init_driver method;
 		
 		System.out.println("Browsername is : "+browsername);
+		log.info("Browsername is : "+browsername+" --->Message Coming from Log4J DriverFactory Class");
+		
 		
 		if(browsername.equalsIgnoreCase("chrome"))
 		{

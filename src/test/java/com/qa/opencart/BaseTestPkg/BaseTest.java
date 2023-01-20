@@ -91,7 +91,7 @@ public class BaseTest {
 		driver.quit();
 	}
 	
-	
+/*	
 	@AfterSuite
 	public void sendTestReports() {
 
@@ -161,6 +161,6 @@ public class BaseTest {
 			ex.printStackTrace();
 		}
 	}
-	
+*/	
 	
 }

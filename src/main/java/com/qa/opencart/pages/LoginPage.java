@@ -1,9 +1,11 @@
 package com.qa.opencart.pages;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.opencart.constants.Constants_Class;
+import com.qa.opencart.factory.DriverFactory;
 import com.qa.opencart.utils.ElementUtil;
 
 import io.qameta.allure.Step;
@@ -24,7 +26,7 @@ public class LoginPage {
 	private By logoutsuccess=By.cssSelector("div#content h1");	// Check logout sucess message
 	
 	private By forGit=By.id("GitPurpose - updating locator");						// adding this locator for code push to git after a change in code
-	
+	public static final Logger log=Logger.getLogger(DriverFactory.class);
 		
 	//  Constructor
 	
@@ -50,6 +52,7 @@ public class LoginPage {
 	public AccountsPage doLogin(String uname,String pwd)
 	{
 		System.out.println("Login Credentials are - username : " + uname+" & password : "+pwd);
+		log.info("Login Credentials are - username : " + uname+" & password : "+pwd+" --->> Message coming from Log4J Login Page Class");
 		eu.waitForVisibilityOfElementExplicitWait(emailid, Constants_Class.DEFAULT_WEB_ELEMENT_TIMEOUT).sendKeys(uname);	// this method returns webelement so we can write sendkeys
 		eu.doSendKeys(password, pwd);																						// for other locators we dont need to wait
 		eu.doClick(loginbtn);
