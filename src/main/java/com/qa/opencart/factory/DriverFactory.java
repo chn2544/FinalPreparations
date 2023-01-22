@@ -30,6 +30,7 @@ public class DriverFactory {
 	
 	private static ThreadLocal<WebDriver> tldriver=new ThreadLocal<WebDriver>();    // tldriver will have copy of that particular webdriver ref object.
 	public static final Logger log=Logger.getLogger(DriverFactory.class);
+	public static String highlight;
 		
 //		 this method is used to initialized driver based on browser name
 //		 and this method returns the driver.	
@@ -38,6 +39,7 @@ public class DriverFactory {
 	{
 		String browsername=prop.getProperty("browser").trim();
 		String url=prop.getProperty("url").trim();
+		highlight=prop.getProperty("highlight");
 		
 		om=new OptionsManager(prop);						// here we can pass prop reference coming in init_driver method;
 		

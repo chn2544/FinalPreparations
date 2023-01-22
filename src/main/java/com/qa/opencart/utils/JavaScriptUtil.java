@@ -13,8 +13,8 @@ public class JavaScriptUtil {
 		this.driver=driver;
 	}
 	
-	public void flash(WebElement element)
-	{
+	public void flash(WebElement element)							// to see where driver is taking action - internally calls changeColor
+	{																// to show demo to client
 		String bgcolor=element.getCssValue("backgroundColor");
 		for(int i=0;i<50;i++)
 		{
@@ -23,7 +23,7 @@ public class JavaScriptUtil {
 		}
 	}
 	
-	private void changeColor(String color,WebElement element)
+	private void changeColor(String color,WebElement element)						// to see where driver is taking action
 	{
 //		convert driver to javascript executor and it will become javascriptexecutor instance and it will be referred by reference variable of javascriptexecutor
 		JavascriptExecutor js=(JavascriptExecutor)driver;
@@ -95,7 +95,7 @@ public class JavaScriptUtil {
 		js.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 	}
 	
-	public void scrollIntoView(WebElement element)
+	public void scrollIntoView(WebElement element)							// to stop scrolling when element is located...
 	{
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].scrollIntoView(true);",element);

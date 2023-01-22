@@ -18,24 +18,33 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.qa.opencart.factory.DriverFactory;
+
 public class ElementUtil {   // Element utility having method to find webElement, find multiple WebElements, sendkeys, click on webelement, getattribute
 							 // isdisplayed, isenabled, get by etc.
 		
 	
 	private WebDriver driver;    // we would need driver here to take actions on webelement
+	private JavaScriptUtil ju;	// to that we can use flash method while getting webelement
 	
 //  -------------------------- Constructor---------------------------------------
 	
 	public ElementUtil(WebDriver driver)
 	{
 		this.driver=driver;              // this line will give driver to ElementUtil which will be passed from Test Class (while creating ElementUtil object)
+		ju=new JavaScriptUtil(driver);		// as javascriptutil is also expecting driver in its constructor while creating its object.
 	}
 
 //  --------------------------- Find Single WebElement-----------------------------------------------------
 	
 	public WebElement getElement(By locator)          // removed static because we want to call it via ElementUtil object 
 	{ 												// this method will take By lcoator and return webelement 
-		return driver.findElement(locator);
+		WebElement elem=driver.findElement(locator);
+		if(Boolean.parseBoolean(DriverFactory.highlight))
+		{
+			ju.flash(elem);
+		}
+		return elem;
 		 
 	}
 	

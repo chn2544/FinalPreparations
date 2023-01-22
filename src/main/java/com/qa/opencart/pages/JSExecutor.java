@@ -54,8 +54,8 @@ public class JSExecutor {
 //		Practical use - while demoing certain functionality to client, flash can be used
 //		Or to know where driver is availale 
 		
-/*		WebElement fullname2=driver.findElement(By.xpath("//input[@name='Name']"));
-		ju.flash(fullname2);																					*/
+		WebElement fullname2=driver.findElement(By.xpath("//input[@name='Name']"));
+		ju.flash(fullname2);																					
 		
 //		Click on a webelement using JS Executor		
 
@@ -80,9 +80,9 @@ public class JSExecutor {
 // 		to go to specific height
 		ju.scrollPageDown("800");
 //		scroll into view - to scroll till specific element is reached		
-		WebElement washingmachine=driver.findElement(By.xpath("//h2[contains(text(),'washing machines')]"));
-		ju.scrollIntoView(washingmachine);
-		System.out.println(washingmachine.getText());
+/*		WebElement washingmachine=driver.findElement(By.xpath("//h2[contains(text(),'washing machines')]"));
+		ju.scrollIntoView(washingmachine);																		// to stop scrolling when element is visible
+		System.out.println(washingmachine.getText());	
 		Thread.sleep(2000);
 		ju.scrollPageUp();
 		
@@ -98,7 +98,7 @@ public class JSExecutor {
 		String val=searchbox.getAttribute("value");
 		System.out.println("Entered Value is "+val);
 	
-		
+*/		
 	}
 
 }
